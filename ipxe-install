@@ -16,7 +16,7 @@ set console console=ttyS1,115200n8
 #kernel ${base}/images/pxeboot/vmlinuz console=ttyS1,115200n8 initrd=initrd.img inst.repo=${base} inst.install_dev=/dev/sda rd.net.timeout.carrier=30 inst.platform_id=packet
 #initrd ${base}/images/pxeboot/initrd.img
 
-kernel https://boot.netboot.xyz/memdisk iso raw console=ttyS1,115200n8
-initrd https://repo.virtuozzo.com/vz-platform/releases/6.2/x86_64/iso/vz-platform-6.2.1-51.iso
+kernel http://bare.demo-virtuozzo.com/images/pxeboot/vmlinuz console=ttyS1,115200n8
+initrd http://bare.demo-virtuozzo.com/images/pxeboot/initrd.img
 
 boot

@@ -1,0 +1,19 @@
+#!ipxe
+dhcp net0
+
+# repomirror
+set mirror http://mirror.pit.teraswitch.com
+
+# x86_64, aarch_64, ppc64le
+set arch x86_64
+
+set path /rocky/9.4/BaseOS/x86_64/os/
+set base ${mirror}${path}
+
+set console console=ttyS1,115200n8
+
+# coreos.live.rootfs_url=${mirror}${path}/boot.iso 
+kernel ${base}/images/pxeboot/vmlinuz console=ttyS1,115200n8 initrd=initrd.img inst.repo=${base} inst.install_dev=/dev/sda rd.net.timeout.carrier=30 inst.platform_id=packet
+initrd ${base}/images/pxeboot/initrd.img
+
+boot

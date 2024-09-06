@@ -18,7 +18,5 @@ set console console=ttyS1,115200n8
 
 kernel https://boot.netboot.xyz/memdisk iso raw console=ttyS1,115200n8
 initrd https://repo.virtuozzo.com/vz-platform/releases/6.2/x86_64/iso/vz-platform-6.2.1-51.iso
-boot
-
 
 boot

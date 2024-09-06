@@ -6,7 +6,6 @@ dhcp net0
 
 # x86_64, aarch_64, ppc64le
 #set arch x86_64
-set kickstart-url http://bare.demo-virtuozzo.com/master.ks
 #set path /rocky/9.4/BaseOS/x86_64/os/
 #set base ${mirror}${path}
 
@@ -15,7 +14,7 @@ set console console=ttyS1,115200n8
 #kernel ${base}/images/pxeboot/vmlinuz console=ttyS1,115200n8 initrd=initrd.img inst.repo=${base} inst.install_dev=/dev/sda rd.net.timeout.carrier=30 inst.platform_id=packet
 #initrd ${base}/images/pxeboot/initrd.img
 
-kernel http://bare.demo-virtuozzo.com/ks/images/pxeboot/vmlinuz console=ttyS1,115200n8 initrd=initrd.img inst.repo=http://bare.demo-virtuozzo.com/ks/
+kernel http://bare.demo-virtuozzo.com/ks/images/pxeboot/vmlinuz console=ttyS1,115200n8 ks=http://bare.demo-virtuozzo.com/master.ks initrd=initrd.img inst.repo=http://bare.demo-virtuozzo.com/ks/
 initrd http://bare.demo-virtuozzo.com/ks/images/pxeboot/initrd.img
 initrd http://bare.demo-virtuozzo.com/ks/LiveOS/squashfs.img
 

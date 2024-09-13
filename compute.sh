@@ -60,7 +60,7 @@ if [ -z "$token" ]; then
 fi
 
 log_msg "registering the node..."
-retry /usr/libexec/vstorage-ui-agent/bin/register-storage-node.sh -m $mn_ip -t "${token}" -x bond0
+retry /usr/libexec/vstorage-ui-agent/bin/register-storage-node.sh -m $mn_ip -t "${token}" -x bond0.502
 log_msg "registering the node...done"
 
 node_id=`sed -n 's/^NODE_ID =//p' /etc/vstorage/vstorage-ui-agent.conf`
@@ -79,7 +79,7 @@ retry sshpass -p $password ssh -o 'StrictHostKeyChecking=no' -o LogLevel=ERROR r
 log_msg "setting Public interface roles...done"
 
 log_msg "setting Private interface roles..."
-retry sshpass -p $password ssh -o 'StrictHostKeyChecking=no' -o LogLevel=ERROR root@$mn_ip "vinfra --vinfra-password $password node iface set --wait --node ${node_id} --network Private bond1.502 --wait"
+retry sshpass -p $password ssh -o 'StrictHostKeyChecking=no' -o LogLevel=ERROR root@$mn_ip "vinfra --vinfra-password $password node iface set --wait --node ${node_id} --network Private bond0.502 --wait"
 log_msg "setting Private interface roles...done"
 if [ "$onboard" == "true" ]; then
     log_msg "joining the compute cluster..."

@@ -57,7 +57,7 @@ systemctl start vstorage-ui-backend
 log_msg "started vstorage-ui-backend service"
 
 echo $password | bash /usr/libexec/vstorage-ui-backend/bin/configure-backend.sh -x bond0 \
--i bond1.502
+-i bond0.502
 log_msg "configured backend"
 
 /usr/libexec/vstorage-ui-backend/libexec/init-backend.sh

@@ -95,9 +95,13 @@ log_msg "deploying storage cluster...done"
 
 
 log_msg "configuring traffic types..."
+retry vinfra --vinfra-password $password cluster network create Storage --traffic-types 'Storage' --wait 
+retry vinfra --vinfra-password $password cluster network create Trunk --traffic-types 'VM public' --wait 
+retry vinfra --vinfra-password $password cluster network create CP --traffic-types 'Admin panel' --wait 
+retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'SSH' CP --wait 
 retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'VM private' Private --wait
 retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'Compute API' Public --wait
-retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'Self-service panel' Public --wait
+retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'Self-service panel' CP --wait
 retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'VM public' Public --wait
 retry vinfra --vinfra-password $password cluster network set --add-traffic-types 'VM backups' Private --wait
 log_msg "configuring traffic types...done"

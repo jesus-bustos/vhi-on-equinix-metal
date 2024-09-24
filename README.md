@@ -1,12 +1,12 @@
-Virtuozzo Hybrid Ingfrastructure deployment on Equinix Metal
+# Virtuozzo Hybrid Ingfrastructure deployment on Equinix Metal
 
-Prerequisites:
+## Prerequisites:
 
 0. You need a VM which acts as the Kickstart server providing access to the rpms and to the Kickstart files
 1. Ensure This is reflected on your iPXE configuration file
 
 
-Installation: 
+## Installation: 
 
 0. Login to your Equinix Metal Portal and Select Deploy on Demand
 
@@ -40,7 +40,7 @@ compute_addons="metering,k8saas,lbsaas" # this will deploy, Gnocchi, Kubernetes 
 
 Available parameters for Compute node Deployment are:
 
-# Configuration variables for deployment script
+#Configuration variables for deployment script
 password="Your Password#"
 mn_ip="192.168.30.100"  # Management Node IP Address
 type="compute"  # Operational mode, can be 'storage', 'compute', 'ha', 'hacompute', or 'none'

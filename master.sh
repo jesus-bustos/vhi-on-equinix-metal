@@ -83,6 +83,16 @@ sleep 10
 node_id=`vinfra --vinfra-password $password node list -f value -c id -c is_primary | sort -k 2 | tail -n 1 | cut -c1-36`
 
 log_msg "deploying storage cluster..."
+retry vinfra --vinfra-password $password node disk release nvme0n1 --wait
+retry vinfra --vinfra-password $password node disk release nvme1n1 --wait 
+retry vinfra --vinfra-password $password node disk release md126 --wait 
+retry vinfra --vinfra-password $password node disk release md124 --wait 
+retry vinfra --vinfra-password $password node disk release md125 --wait 
+retry vinfra --vinfra-password $password node disk release md127 --wait 
+retry vinfra --vinfra-password $password node disk assign --disk md126:mds-system --wait 
+retry vinfra --vinfra-password $password node disk assign --disk md124:system --wait 
+retry vinfra --vinfra-password $password node disk assign --disk md125:system --wait 
+retry vinfra --vinfra-password $password node disk assign --disk md127:swap --wait 
 retry vinfra --vinfra-password $password cluster create --node "${node_id}" $cluster_name --wait
 log_msg "deploying storage cluster...done"
 

@@ -30,18 +30,18 @@ For subsequent deployments of nodes, use the relevant iPXE file as an example:
 4. Populate the User Data Section with the parameters relevant to the deployment
 ![Screenshot 2024-09-24 at 16 35 24](https://github.com/user-attachments/assets/653f20c6-c8b2-45d8-8bf5-e4b2e6fe16e6)
 
-Available parameters for Control Node Deployment are:
-password='YourPassword' #Password 
-private_ip="192.168.30.100" #IP of the Management network IP of the Control Plane
-cluster_name="EquinixMetal" #Name of the Storage Cluster
-type="compute" #Type of deployment 
-compute_addons="metering,k8saas,lbsaas" # this will deploy, Gnocchi, Kubernetes as a Service and LoadBalancer as a Service addon. 
+### Available parameters for Control Node Deployment are:
+password='YourPassword' #Password <br />
+private_ip="192.168.30.100" #IP of the Management network IP of the Control Plane <br />
+cluster_name="EquinixMetal" #Name of the Storage Cluster <br />
+type="compute" #Type of deployment <br />
+compute_addons="metering,k8saas,lbsaas" # this will deploy, Gnocchi, Kubernetes as a Service and LoadBalancer as a Service addon. <br />
 
-Available parameters for Compute node Deployment are:
-#Configuration variables for deployment script
-password="Your Password#"
-mn_ip="192.168.30.100"  # Management Node IP Address
-type="compute"  # Operational mode, can be 'storage', 'compute', 'ha', 'hacompute', or 'none'
-onboard="true"
+### Available parameters for Compute node Deployment are:
+password='Your Password# <br />
+mn_ip="192.168.30.100" #Management Node IP <br />
+type="compute"  <br />
+#### Type = Operational mode, can be 'storage', 'compute', 'ha', 'hacompute', or 'none'
+onboard="true" <br />
 
 To deploy subsequent nodes follow instructions 0 to 4.

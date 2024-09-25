@@ -2,7 +2,8 @@
 dhcp net0
 set console console=ttyS1,115200n8
 #vnc only for debugging purposes 
-kernel http://bare.demo-virtuozzo.com/ks/images/pxeboot/vmlinuz console=ttyS1,115200n8 inst.ks=http://bare.demo-virtuozzo.com/master.ks initrd=initrd.img inst.repo=http://bare.demo-virtuozzo.com/ks/ 
+kernel http://bare.demo-virtuozzo.com/ks/images/pxeboot/vmlinuz console=ttyS1,115200n8 inst.ks=http://bare.demo-virtuozzo.com/compute.ks initrd=initrd.img inst.repo=http://bare.demo-virtuozzo.com/ks/ inst.vnc inst.vncpassword=testpud_
+#kernel http://bare.demo-virtuozzo.com/ks/images/pxeboot/vmlinuz console=ttyS1,115200n8 inst.ks=http://bare.demo-virtuozzo.com/master.ks initrd=initrd.img inst.repo=http://bare.demo-virtuozzo.com/ks/ 
 initrd http://bare.demo-virtuozzo.com/ks/images/pxeboot/initrd.img
 initrd http://bare.demo-virtuozzo.com/ks/LiveOS/squashfs.img
 boot
